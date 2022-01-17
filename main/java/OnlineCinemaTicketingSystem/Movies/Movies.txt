@@ -1,0 +1,253 @@
+package OnlineCinemaTicketingSystem.Movies;
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class Movies{
+    static int allowed_length = 0;
+
+    public static void main(String[] args) {
+        MoviesFullInfo[] movies = new MoviesFullInfo[6];
+        Scanner s = new Scanner(System.in);
+        int hall, change;
+        double price;
+        String movieName = "", rating = "", genre = "", time_start = "", time_end = "",sql_statement;
+
+        sql_statement = "SELECT * FROM moviesinfo";
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/assignment fop", "root", "AkuKacak0965");
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(sql_statement);
+            while(rs.next()){
+                movieName = rs.getString("moviename");
+                genre = rs.getString("moviegenre");
+                rating = rs.getString("movierating");
+                hall = rs.getInt("hall");
+                time_start = rs.getString("timestart");
+                time_end = rs.getString("timeend");
+                price = rs.getDouble("price");
+
+                allowed_length++;
+            }
+            connection.close();
+        } catch(Exception e){
+            System.err.println("Something wrong");
+            System.err.println(e.getMessage());
+        }
+        displayMovie(movies);
+
+        outer :
+        while(true) {
+            System.out.print("\n\nDo you want to do any changes to the movies?" +
+                    "\n0    No" +
+                    "\n1    Add Movies" +
+                    "\n2    Remove Movies" +
+                    "\n3    Update Movie Details\n\nAnswer : ");
+            change = s.nextInt();
+            switch(change){
+                case 0:
+                    break outer;
+
+                case 1:
+                    addMovie(movies);
+                    break;
+
+                case 2:
+                    removeMovie(movies);
+                    break;
+
+                case 3:
+                    updateMovieDetails(movies);
+                    break;
+            }
+        }
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/assignment fop", "root", "AkuKacak0965");
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM moviesinfo;");
+            statement.execute();
+            connection.close();
+        } catch(Exception e){
+            System.err.println("Cannot delete all record");
+            System.err.println(e.getMessage());
+        }
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/assignment fop", "root", "AkuKacak0965");
+            for(int i = 0; i < allowed_length; i++){
+                movieName = movies[i].getMovieName();
+                genre = movies[i].getGenre();
+                rating = movies[i].getRating();
+                hall = movies[i].getHall();
+                time_start = movies[i].getTime_start();
+                time_end = movies[i].getTime_end();
+                price = movies[i].getPrice();
+                sql_statement = "INSERT INTO moviesinfo(moviename, moviegenre, movierating, hall ,timestart, timeend, price)" +
+                        "VALUES('"+movieName+"','"+genre+"','"+rating+"','"+hall+"','"+time_start+"','"+time_end+"','"+price+"');";
+                PreparedStatement statement = connection.prepareStatement(sql_statement);
+                statement.execute();
+            }
+            connection.close();
+        } catch(Exception e){
+            System.err.println("Problem writing into database");
+            System.err.println(e.getMessage());
+        }
+
+    }
+    public static void removeMovie(MoviesFullInfo[] a){
+        Scanner b = new Scanner(System.in);
+        boolean remove = true;
+        while(remove){
+            System.out.print("Do you want to remove any movie (true or false): ");
+            remove = b.nextBoolean();
+            if(remove){
+                int removeIndex = 0;
+                System.out.print("Enter which movie to be removed (0 to 6) : ");
+                removeIndex = b.nextInt();
+                for (int i = removeIndex; i < allowed_length - 1; i++) {
+                    a[i] = a[i + 1];
+                }
+                allowed_length--;
+
+                displayMovie(a);
+            }
+            else{
+                remove  = false;
+            }
+        }
+
+    }
+    public static void addMovie(MoviesFullInfo[] a){
+        Scanner p = new Scanner(System.in);
+        boolean add = true;
+        String movieName, genre, rating, time_start, time_end;
+        int hall;
+        double price;
+
+        for(int i = allowed_length; i < a.length; i++) {
+            System.out.print("Do you want to add a movie? (true or false) : ");
+            add = p.nextBoolean();
+            p.nextLine();
+            if(add){
+                System.out.print("Movie Name = ");
+                movieName = p.nextLine();
+                System.out.print("Genre = ");
+                genre = p.nextLine();
+                System.out.print("Rating = ");
+                rating = p.nextLine();
+                System.out.print("Hall = ");
+                hall = p.nextInt();
+                System.out.print("Start time = ");
+                time_start = p.next();
+                System.out.print("End time = ");
+                time_end = p.next();
+                System.out.print("Price = ");
+                price = p.nextDouble();
+
+                a[i] = new MoviesFullInfo(movieName, genre, rating, hall, time_start, time_end, price);
+                allowed_length++;
+            }
+            else{
+                break;
+            }
+            displayMovie(a);
+        }
+
+    }
+    public static void displayMovie(MoviesFullInfo[] a){
+        System.out.println("\nMovie List");
+        for(int i = 0; i < allowed_length; i++){
+            System.out.println("\nMovie number : " + (i) + "\n--------------------------------------");
+            System.out.println(a[i]);
+        }
+    }
+    public static void updateMovieDetails(MoviesFullInfo[] a){
+        Scanner f = new Scanner(System.in);
+        int movieNumber = 0, detail = -1;
+        boolean update = true;
+
+        while(update){
+            System.out.print("Do you want to edit the details of any movie (true or false): ");
+            update = f.nextBoolean();
+
+            if(update){
+                System.out.print("Enter the movie number : ");
+                movieNumber = f.nextInt();
+                System.out.println(
+                        "0  Exit\n" +
+                        "1  Movie Name\n" +
+                        "2  Genre\n" +
+                        "3  Rating\n" +
+                        "4  Hall\n" +
+                        "5  Start Time\n" +
+                        "6  End Time\n" +
+                        "7  Price\n");
+
+                while(detail!=0) {
+                    System.out.print("Which detail do you want to change : ");
+                    detail = f.nextInt();
+                    f.nextLine();
+                    String edit1, edit2, edit3, edit5, edit6;
+                    int edit4;
+                    double edit7;
+
+                    switch(detail){
+                        case 1:
+                            System.out.print("Movie Name : ");
+                            edit1 = f.nextLine();
+                            a[movieNumber].setMovieName(edit1);
+                            break;
+
+                        case 2:
+                            System.out.print("Genre : ");
+                            edit2 = f.nextLine();
+                            a[movieNumber].setGenre(edit2);
+                            break;
+
+                        case 3:
+                            System.out.print("Rating : ");
+                            edit3 = f.nextLine();
+                            a[movieNumber].setRating(edit3);
+                            break;
+
+                        case 4:
+                            System.out.print("Hall : ");
+                            edit4 = f.nextInt();
+                            a[movieNumber].setHall(edit4);
+                            break;
+
+                        case 5:
+                            System.out.print("Start Time : ");
+                            edit5 = f.next();
+                            a[movieNumber].setTime_start(edit5);
+                            break;
+
+                        case 6:
+                            System.out.print("End Time : ");
+                            edit6 = f.next();
+                            a[movieNumber].setTime_end(edit6);
+                            break;
+
+                        case 7:
+                            System.out.print("Price : ");
+                            edit7 = f.nextDouble();
+                            a[movieNumber].setPrice(edit7);
+                            break;
+                    }
+                }
+            }
+            else{
+                break;
+            }
+        }
+        displayMovie(a);
+    }
+    public static void tea(){
+
+    }
+
+
+
+
+
+}

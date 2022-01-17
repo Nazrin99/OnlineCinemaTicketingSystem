@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="750.0" stylesheets="@stylebutton.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OnlineCinemaTicketingSystem.LoginController">
+   <top>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="image" fitHeight="225.0" fitWidth="356.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+               <image>
+                  <Image url="@GSC.png" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </top>
+   <left>
+      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <children>
+                  <HBox fx:id="twobuttons" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="3.0">
+                     <children>
+                        <Button id="button" fx:id="signinFormButton" mnemonicParsing="false" onAction="#signinFormButtonClicked" text="Sign In" />
+                        <Button id="button" fx:id="signupFormButton" mnemonicParsing="false" onAction="#signupFormButtonClicked" text="Sign Up" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="2.0" right="2.0" top="2.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="twobuttons2" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="3.0">
+                     <children>
+                        <Button id="button" fx:id="signinFormButton_staff" mnemonicParsing="false" onAction="#signinFormButtonClicked_staff" text="Sign In" />
+                        <Button id="button" fx:id="signupFormButton_staff" mnemonicParsing="false" onAction="#signupFormButtonClicked_staff" text="Sign Up" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="2.0" right="2.0" top="2.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <VBox fx:id="signinByUsername" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="Username : " HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="username_signin" prefHeight="26.0" prefWidth="140.0" promptText="Enter username" HBox.hgrow="NEVER" />
+                              <Region prefHeight="26.0" prefWidth="6.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets top="10.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region />
+                              <Label text="Password :" />
+                              <PasswordField fx:id="password_signin_un" prefWidth="140.0" promptText=" Enter password" />
+                              <Region />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="signinLabel_un" textFill="RED">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="pn_em" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="signinByPhoneNumber_un" mnemonicParsing="false" onAction="#signinByPhoneNumberClicked_un" text="Phone Number" />
+                              <Button fx:id="signinByEmail_un" mnemonicParsing="false" onAction="#signinByEmailClicked_un" text="Email" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button id="button" fx:id="signinButton_un" mnemonicParsing="false" onAction="#signinButtonClicked_un" text="Sign In" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="signinByPhoneNumber" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="Phone Number :" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="phoneNumber_signin" prefHeight="26.0" prefWidth="140.0" promptText="Enter phone number" HBox.hgrow="NEVER" />
+                              <Region prefHeight="30.0" prefWidth="29.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets top="10.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region />
+                              <Label text="Password :" />
+                              <PasswordField fx:id="password_signin_pn" prefWidth="140.0" promptText=" Enter password" />
+                              <Region />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="signinLabel_pn" textFill="RED">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="em_un" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="signinByEmail_pn" mnemonicParsing="false" onAction="#signinByEmailClicked_pn" text="Email" />
+                              <Button fx:id="signinByUsername_pn" mnemonicParsing="false" onAction="#signinByUsernameClicked_pn" text="Username" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button id="button" fx:id="signinButton_pn" mnemonicParsing="false" onAction="#signinButtonClicked_pn" text="Sign In" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="signinByEmail" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region prefHeight="30.0" prefWidth="58.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="Email :" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="email_signin" prefHeight="26.0" prefWidth="140.0" promptText="Enter phone number" HBox.hgrow="NEVER" />
+                              <Region prefHeight="30.0" prefWidth="35.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets top="10.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region />
+                              <Label text="Password :" />
+                              <PasswordField fx:id="password_signin_em" prefWidth="140.0" promptText=" Enter password" />
+                              <Region />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="signinLabel_em" textFill="RED">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="pn_un" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Button fx:id="signinByPhoneNumber_em" mnemonicParsing="false" onAction="#signinByPhoneNumberClicked_em" text="Phone Number" />
+                              <Button fx:id="signinByUsername_em" mnemonicParsing="false" onAction="#signinByUsernameClicked_em" text="Username" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button id="button" fx:id="signinButton_em" mnemonicParsing="false" onAction="#signinButtonClicked_em" text="Sign In" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="SignUpForm" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="Username : " HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="username_signup" prefHeight="26.0" prefWidth="140.0" promptText="Enter username" HBox.hgrow="NEVER" />
+                              <Region prefHeight="26.0" prefWidth="6.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets top="10.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Region prefHeight="26.0" prefWidth="19.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Email : " />
+                              <TextField fx:id="email_signup" prefHeight="26.0" prefWidth="140.0" promptText="Enter email" />
+                              <Region HBox.hgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region prefHeight="26.0" prefWidth="0.0" />
+                              <Label alignment="CENTER" text="Phone Number :" />
+                              <TextField fx:id="phoneNumber_signup" prefHeight="26.0" prefWidth="140.0" promptText="Enter phone number" />
+                              <Region prefHeight="26.0" prefWidth="30.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region />
+                              <Label text="Password :" />
+                              <PasswordField fx:id="password_signup" prefWidth="140.0" promptText="Enter password" />
+                              <Region />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="signupLabel" textFill="RED" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button id="button" fx:id="signupButton" alignment="CENTER" mnemonicParsing="false" onAction="#signupButtonClicked" text="Sign Up" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="staffSigninForm" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region prefHeight="42.0" prefWidth="40.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" lineSpacing="4.0" text="Staff ID :" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="staffID_input" prefHeight="26.0" prefWidth="140.0" promptText="Enter staff ID" HBox.hgrow="NEVER" />
+                              <Region prefHeight="42.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets top="10.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region />
+                              <Label text="Password :" />
+                              <PasswordField fx:id="password_staff" prefWidth="140.0" promptText=" Enter password" />
+                              <Region />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="staffSigninLabel" textFill="RED">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button id="button" fx:id="staffSigninButton" mnemonicParsing="false" onAction="#staffSigninButtonClicked" text="Sign In" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="staffSignupForm" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Region prefHeight="26.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" text="Staff ID : " HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="staffID_signup" prefHeight="26.0" prefWidth="140.0" promptText="Enter staff ID" HBox.hgrow="NEVER" />
+                              <Region prefHeight="26.0" prefWidth="6.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets top="10.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Region prefHeight="26.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Full Name : " />
+                              <TextField fx:id="fullName_signup_staff" prefHeight="26.0" prefWidth="140.0" promptText="Enter full name" />
+                              <Region prefHeight="26.0" prefWidth="3.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region prefHeight="26.0" prefWidth="51.0" />
+                              <Label alignment="CENTER" text="Email :" />
+                              <TextField fx:id="email_signup_staff" prefHeight="26.0" prefWidth="140.0" promptText="Enter email" />
+                              <Region prefHeight="26.0" prefWidth="30.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="4.0">
+                           <children>
+                              <Region />
+                              <Label text="Password :" />
+                              <PasswordField fx:id="password_signup_staff" prefWidth="140.0" promptText="Enter password" />
+                              <Region />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="signupLabel_staff" textFill="RED" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="6.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button id="button" fx:id="staffSignupButton" alignment="CENTER" mnemonicParsing="false" onAction="#staffSignupButtonClicked" text="Sign Up" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <StackPane BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="gobackVBox" alignment="CENTER" prefHeight="60.0">
+               <children>
+                  <Button id="button" fx:id="backbutton" mnemonicParsing="false" onAction="#backbuttonClicked" text="Go Back" />
+               </children>
+            </VBox>
+            <VBox fx:id="staffsigninVBox" alignment="CENTER" prefHeight="60.0">
+               <children>
+                  <Label fx:id="staffLabel" alignment="CENTER" text="Are you staff? Click here">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button id="button" fx:id="staffSigninPageButton" mnemonicParsing="false" onAction="#staffSigninPageButtonClicked" text="Staff">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="7.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </bottom>
+</BorderPane>

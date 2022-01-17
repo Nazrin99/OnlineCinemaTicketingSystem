@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="715.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OnlineCinemaTicketingSystem.PickSeatsController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="42.0">
+         <children>
+            <ImageView fitHeight="57.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@GSC.png" />
+               </image>
+            </ImageView>
+            <Region prefHeight="58.0" prefWidth="79.0" HBox.hgrow="ALWAYS" />
+            <Label alignment="CENTER" prefHeight="58.0" prefWidth="258.0" style="-fx-text-fill: #FFFFFF;" text="ADD MOVIES">
+               <font>
+                  <Font name="Century Gothic Bold" size="25.0" />
+               </font>
+            </Label>
+            <Region prefHeight="58.0" prefWidth="81.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#goBackButtonClicked" prefHeight="26.0" prefWidth="78.0" text="Go Back" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </HBox>
+      <StackPane>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="5.0" />
+         </VBox.margin>
+         <children>
+            <VBox prefHeight="564.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="175.0" prefWidth="910.0">
+                     <children>
+                        <ImageView fx:id="ScreenImage" fitHeight="150.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@Screen.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <GridPane fx:id="allButtons" alignment="CENTER" prefHeight="564.0" VBox.vgrow="NEVER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ToggleButton fx:id="A0" contentDisplay="CENTER" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A0" />
+                        <ToggleButton fx:id="A1" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A1" GridPane.columnIndex="1" />
+                        <ToggleButton fx:id="A2" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A2" GridPane.columnIndex="2" />
+                        <ToggleButton fx:id="B0" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B0" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="B1" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="B2" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B2" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="B3" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B3" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="A3" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A3" GridPane.columnIndex="3" />
+                        <ToggleButton fx:id="A4" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A4" GridPane.columnIndex="4" />
+                        <ToggleButton fx:id="B4" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B4" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="A5" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A5" GridPane.columnIndex="5" />
+                        <ToggleButton fx:id="B5" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B5" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="C1" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="C0" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C0" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="C2" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C2" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="C3" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C3" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="C4" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C4" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="C5" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C5" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="B6" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B6" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="A6" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A6" GridPane.columnIndex="6" />
+                        <ToggleButton fx:id="A7" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A7" GridPane.columnIndex="7" />
+                        <ToggleButton fx:id="B7" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B7" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="C6" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C6" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="C7" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C7" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="A8" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A8" GridPane.columnIndex="8" />
+                        <ToggleButton fx:id="B8" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B8" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="C8" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C8" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="A9" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="A9" GridPane.columnIndex="9" />
+                        <ToggleButton fx:id="B9" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="B9" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+                        <ToggleButton fx:id="C9" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="C9" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+                        <ToggleButton fx:id="D0" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D0" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D1" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D2" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D2" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D3" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D3" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D4" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D4" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D5" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D5" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D6" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D6" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D7" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D7" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D8" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D8" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="D9" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="D9" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+                        <ToggleButton fx:id="E0" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E0" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E1" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E2" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E2" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E3" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E3" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E4" contentDisplay="CENTER" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E4" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E5" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E5" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E6" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E6" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E7" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E7" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E8" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E8" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                        <ToggleButton fx:id="E9" mnemonicParsing="false" onAction="#seatButtonClicked" prefWidth="70.0" text="E9" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </StackPane>
+      <HBox alignment="CENTER" prefHeight="83.0" prefWidth="930.0" spacing="30.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#repickButtonClicked" prefWidth="150.0" text="Repick Seats" />
+            <Button fx:id="confirmSeatButton" mnemonicParsing="false" onAction="#confirmSeatButtonClicked" prefWidth="150.0" text="Confirm Seat Selection" />
+            <ToggleButton fx:id="wantsFandB" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="Craving some F&amp;B?" />
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding></HBox>
+   </children>
+</VBox>

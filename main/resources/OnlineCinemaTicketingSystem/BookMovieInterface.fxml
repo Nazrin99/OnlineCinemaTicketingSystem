@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="715.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OnlineCinemaTicketingSystem.BookMovieController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="57.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@GSC.png" />
+               </image>
+            </ImageView>
+            <Region prefHeight="58.0" prefWidth="79.0" HBox.hgrow="ALWAYS" />
+            <Label alignment="CENTER" prefHeight="58.0" prefWidth="307.0" text="BOOK MOVIE">
+               <font>
+                  <Font name="Century Gothic Bold" size="25.0" />
+               </font>
+            </Label>
+            <Region prefHeight="58.0" prefWidth="81.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#goBackButtonClicked" prefHeight="26.0" prefWidth="78.0" text="Go Back" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </HBox>
+      <SplitPane dividerPositions="0.501937984496124" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="807.0">
+         <items>
+            <VBox alignment="CENTER" prefHeight="398.0" prefWidth="294.0">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Region prefHeight="54.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                        <Label alignment="CENTER" lineSpacing="10.0" prefHeight="50.0" prefWidth="246.0" text="AVAILABLE MOVIES">
+                           <font>
+                              <Font name="Century Gothic Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Region prefHeight="54.0" prefWidth="38.0" HBox.hgrow="ALWAYS" />
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#refreshTableButtonClicked" text="Refresh" />
+                     </children>
+                     <padding>
+                        <Insets right="15.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane prefHeight="597.0" prefWidth="400.0">
+                     <content>
+                        <StackPane fx:id="stackPane">
+                           <children>
+                              <TableView fx:id="movietable_showtimes" fixedCellSize="50.0" prefHeight="591.0" prefWidth="956.0">
+                                 <columns>
+                                    <TableColumn fx:id="moviename" minWidth="-1.0" prefWidth="112.80001217126846" text="Movie Name" />
+                                    <TableColumn fx:id="date" minWidth="-1.0" prefWidth="62.40007019042969" text="Date" />
+                                    <TableColumn fx:id="hall" minWidth="-1.0" prefWidth="100.0" text="Theatre Hall" />
+                                    <TableColumn fx:id="timestart" minWidth="-1.0" prefWidth="92.79998779296875" text="Time Start (24 hours format)" />
+                                    <TableColumn fx:id="timeend" minWidth="-1.0" prefWidth="164.79996337890623" text="Time End (24 hours format)" />
+                                    <TableColumn fx:id="duration" prefWidth="75.0" text="Duration" />
+                                    <TableColumn fx:id="ticketprice_r" prefWidth="75.0" text="Ticket Price - Regular (RM)" />
+                                    <TableColumn fx:id="ticketprice_s" prefWidth="75.0" text="Ticket Price - Student (RM)" />
+                                    <TableColumn fx:id="ticketprice_p" prefWidth="75.0" text="Ticket Price - Premium (RM)" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="2.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="398.0" prefWidth="294.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="66.0" prefWidth="298.0" text="ENTER MOVIE DETAILS TO BOOK">
+                     <font>
+                        <Font name="Century Gothic Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="TOP_CENTER" prefHeight="603.0" prefWidth="380.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="200.0" text="Movie Name :" HBox.hgrow="SOMETIMES" />
+                              <Region prefHeight="96.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                              <ChoiceBox fx:id="moviename_book" prefWidth="230.0" />
+                              <Label prefWidth="160.0" />
+                              <Region prefHeight="96.0" prefWidth="38.0" HBox.hgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="200.0" text="Date (yyyy-mm-dd)" HBox.hgrow="SOMETIMES" />
+                              <Region prefHeight="96.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="date_book" prefHeight="26.0" prefWidth="230.0" />
+                              <Label prefWidth="160.0" />
+                              <Region prefHeight="96.0" prefWidth="38.0" HBox.hgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="200.0" text="Theatre Hall :" HBox.hgrow="SOMETIMES" />
+                              <Region prefHeight="96.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="hall_book" prefHeight="26.0" prefWidth="230.0" promptText="Enter value between 1 to 9" />
+                              <Label fx:id="hall_label" prefWidth="160.0" />
+                              <Region prefHeight="96.0" prefWidth="38.0" HBox.hgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="200.0" text="Time Start (24 hrs) :" HBox.hgrow="SOMETIMES" />
+                              <Region prefHeight="96.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="timestart_book" prefHeight="26.0" prefWidth="230.0" />
+                              <Label fx:id="time_label" prefWidth="160.0" />
+                              <Region prefHeight="96.0" prefWidth="38.0" HBox.hgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="310.0" prefHeight="100.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="200.0" text="Time End (24 hrs) :" HBox.hgrow="SOMETIMES" />
+                              <Region prefHeight="96.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="timeend_book" prefHeight="26.0" prefWidth="230.0" />
+                              <Label fx:id="time_label" prefWidth="160.0" />
+                              <Region prefHeight="96.0" prefWidth="38.0" HBox.hgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="410.0" prefHeight="100.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="200.0" text="No. of Regular Tickets" HBox.hgrow="SOMETIMES" />
+                              <Region prefHeight="96.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="ticket_r_book" prefHeight="26.0" prefWidth="230.0" />
+                              <Label fx:id="seatcapacity_label" prefWidth="160.0" />
+                              <Region prefHeight="96.0" prefWidth="38.0" HBox.hgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="450.0" prefHeight="100.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="200.0" text="No. of Student Tickets" HBox.hgrow="SOMETIMES" />
+                              <Region prefHeight="96.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="ticket_s_book" prefHeight="26.0" prefWidth="230.0" />
+                              <Label fx:id="seatcapacity_label1" prefWidth="160.0" />
+                              <Region prefHeight="96.0" prefWidth="38.0" HBox.hgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="394.0" prefHeight="100.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="200.0" text="No. of Premium Tickets" HBox.hgrow="SOMETIMES" />
+                              <Region prefHeight="96.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="ticket_p_book" prefHeight="26.0" prefWidth="230.0" />
+                              <Label fx:id="seatcapacity_label2" prefWidth="160.0" />
+                              <Region prefHeight="96.0" prefWidth="38.0" HBox.hgrow="NEVER" />
+                           </children>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="63.0" prefWidth="380.0" spacing="20.0">
+                           <children>
+                              <Label fx:id="book_label" prefHeight="18.0" prefWidth="191.0" textFill="RED">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font></Label>
+                              <Button mnemonicParsing="false" onAction="#clearFormButtonClicked" text="Clear Field" />
+                              <Button mnemonicParsing="false" onAction="#pickSeatsButtonClicked" prefHeight="26.0" prefWidth="85.0" text="Pick Seats" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </items>
+         <effect>
+            <DropShadow />
+         </effect>
+      </SplitPane>
+   </children>
+</VBox>

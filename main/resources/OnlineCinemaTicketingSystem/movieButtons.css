@@ -1,0 +1,35 @@
+.addMoviesButton {
+	-fx-background-radius: 25;
+	-fx-border-color: #C39BD3;
+	-fx-background-color: #EBDEF0;
+	-fx-border-radius: 25;
+	-fx-border-width : 2;
+}
+
+.addMoviesButton:hover{
+	-fx-background-radius: 25;
+	-fx-border-color: #884EA0;
+	-fx-background-color: #884EA0;
+	-fx-border-radius: 25;
+	-fx-border-width : 2;
+	-fx-font-size: 25;
+	-fx-text-fill: #FFFFFF;
+}
+
+.removeMoviesButton {
+	-fx-background-radius: 25;
+	-fx-border-color: #76D7C4;
+	-fx-background-color: #D1F2EB;
+	-fx-border-radius: 25;
+	-fx-border-width : 2;
+}
+
+
+.removeMoviesButton:hover {
+	-fx-background-radius: 25;
+	-fx-border-color: #76D7C4;
+	-fx-background-color: #D1F2EB;
+	-fx-border-radius: 25;
+	-fx-border-width : 2;
+}
+
